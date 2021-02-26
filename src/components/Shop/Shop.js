@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import fakeData from '../../fakeData';
-const shop = () => {
-    console.log(fakeData);
+const Shop = () => {
+    const first10 = fakeData.slice(0,10);
+    const [products, setProducts] =  useState(first10);
+
     return (
         <div>
             <h1>This is shop</h1>
+            <h3>{products.length}</h3>
+            <ul>
+                {
+                    products.map(product => <li>{product.name}</li>)
+                }
+            </ul>
         </div>
     );
 };
 
-export default shop;
+export default Shop;
